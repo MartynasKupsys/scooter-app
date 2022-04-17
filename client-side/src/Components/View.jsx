@@ -32,7 +32,7 @@ export default function View({ getInfo, setRemove, setShowModal }) {
                     className="btn btn-more-info"
                     onClick={() =>
                       setShowModal((st) => {
-                        return { status: !st.status, id: item.id };
+                        return { id: item.id };
                       })
                     }
                   >

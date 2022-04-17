@@ -11,31 +11,52 @@ function App() {
   const [create, setCreate] = useState(null);
   const [getInfo, setGetInfo] = useState([]);
   const [remove, setRemove] = useState(0);
-  const [update, setUpdate] = useState(Date.now());
-  const [showModal, setShowModal] = useState({ status: false, id: 0 });
+  const [updateTime, setUpdateTime] = useState(Date.now());
+  const [showModal, setShowModal] = useState({ id: 0 });
+  const [editItem, setEditItem] = useState(null);
+  console.log(editItem)
 
-  const item = getInfo.filter((el) => el.id === showModal.id);
+
+  function item(id) {
+    const item = getInfo.filter((el) => el.id === id);
+    return item;
+  }
+
+
+  // useEffect(() => {
+  //   if (editItem === null) {
+  //     return;
+  //   }
+  //   console.log(editItem)
+  // }, [editItem])
 
   useEffect(() => {
     if (create === null) {
       return;
     }
-    axios.post("http://localhost:5000/kolt", create).then((res) => setUpdate(Date.now()));
+    axios.post("http://localhost:5001/kolt", create).then((res) => setUpdateTime(Date.now()));
   }, [create]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/kolt")
+      .get("http://localhost:5001/kolt")
       .then((res) => res.data)
       .then((data) => setGetInfo(data));
-  }, [update]);
+  }, [updateTime]);
 
   useEffect(() => {
     if (remove === 0) {
       return;
     }
-    axios.delete("http://localhost:5000/kolt/" + remove).then((res) => setUpdate(Date.now()));
+    axios.delete("http://localhost:5001/kolt/" + remove).then((res) => setUpdateTime(Date.now()));
   }, [remove]);
+
+  // useEffect(() => {
+  //   if (!showModal) {
+  //     return;
+  //   }
+  //   setEditItem(item[0]);
+  // }, [showModal])
 
   return (
     <>
@@ -47,7 +68,7 @@ function App() {
         <div className="col-8">
           <View getInfo={getInfo} setRemove={setRemove} setShowModal={setShowModal}></View>
         </div>
-        <Modal showModal={showModal} item={item}></Modal>
+        <Modal showModal={showModal} setShowModal={setShowModal} setEditItem={setEditItem} item={item(showModal.id)}></Modal>
       </div>
     </>
   );

@@ -32,7 +32,7 @@ export default function Create({ setCreate }) {
           value={code}
         />
       </div>
-      <button className="btn btn-submit" onClick={submit}>
+      <button className="btn btn-outline-success" onClick={submit}>
         Submit
       </button>
     </>

@@ -12,17 +12,17 @@
 //   overflow: hidden;
 // }
 
-.col-4 {
-  .btn-submit {
-    color: #0a0908;
-    border-color: #0a0908;
-  }
+// .col-4 {
+//   // .btn-submit {
+//   //   color: #0a0908;
+//   //   border-color: #0a0908;
+//   // }
 
-  .btn-submit:hover {
-    background-color: #0a0908;
-    color: white;
-  }
-}
+//   // .btn-submit:hover {
+//   //   background-color: #0a0908;
+//   //   color: white;
+//   // }
+// }
 
 .table {
   .thead {
@@ -37,22 +37,21 @@
   }
 
   tbody {
-
     td,
     th {
       border-color: #22333b;
       text-align: center;
       vertical-align: middle;
 
-      .btn-more-info {
-        color: #22333b;
-        border-color: #22333b;
-      }
+      // .btn-more-info {
+      //   color: #22333b;
+      //   border-color: #22333b;
+      // }
 
-      .btn-more-info:hover {
-        background-color: #22333b;
-        color: white;
-      }
+      // .btn-more-info:hover {
+      //   background-color: #22333b;
+      //   color: white;
+      // }
     }
   }
 }
@@ -93,19 +92,19 @@
 
   // opacity: 0.5;
   .card {
-    background-color: #22333b;
+    background-color: #f0a868;
 
-    .card-header {
-      color: #eae0d5;
-    }
+    // .card-header {
+    //   color: #eae0d5;
+    // }
 
     .card-body {
-      background-color: #c6ac8f;
+      background-color: #ffe8c2;
     }
   }
 }
 
 #root {
-  height: 100vh;
-  background-color: #FFE8C2;
+  min-height: 100vh;
+  background-color: #ffe8c2;
 }

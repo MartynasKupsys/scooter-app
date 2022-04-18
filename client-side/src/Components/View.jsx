@@ -1,5 +1,5 @@
-import parseDate from "../Functions/parseDate";
-export default function View({ getInfo, setRemove, setShowModal }) {
+import Scooter from "./Scooter";
+export default function View({ getInfo, remove, setShowModal }) {
   return (
     <>
       <h2>Scooter List</h2>
@@ -19,33 +19,37 @@ export default function View({ getInfo, setRemove, setShowModal }) {
         <tbody>
           {getInfo.map((item, i) => {
             return (
-              <tr key={i}>
-                <th scope="row">{i + 1}</th>
-                <td>{item.scooter_name}</td>
-                <td>{parseDate(item.creation_date)}</td>
-                <td>{item.registration_code}</td>
-                <td>{item.last_use_date}</td>
-                <td>{item.total_ride_kilometres}</td>
-                <td>{!item.is_busy ? "Available" : "Occupied"}</td>
-                <td>
-                  <button
-                    className="btn btn-more-info"
-                    onClick={() =>
-                      setShowModal((st) => {
-                        return { id: item.id };
-                      })
-                    }
-                  >
-                    Update Usage
-                  </button>
-                  <button
-                    className="btn btn-outline-danger ml-2"
-                    onClick={() => setRemove(item.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              <Scooter
+                key={i}
+                item={item}
+                index={i}
+                setShowModal={setShowModal}
+                remove={remove}
+              ></Scooter>
+              // <tr key={i}>
+              //   <th scope="row">{i + 1}</th>
+              //   <td>{item.scooter_name}</td>
+              //   <td>{parseDate(item.creation_date)}</td>
+              //   <td>{item.registration_code}</td>
+              //   <td>{item.last_use_date}</td>
+              //   <td>{item.total_ride_kilometres}</td>
+              //   <td>{!item.is_busy ? "Available" : "Occupied"}</td>
+              //   <td>
+              //     <button
+              //       className="btn btn-more-info"
+              //       onClick={() =>
+              //         setShowModal((st) => {
+              //           return { id: item.id };
+              //         })
+              //       }
+              //     >
+              //       Update Usage
+              //     </button>
+              //     <button className="btn btn-outline-danger ml-2" onClick={() => remove(item.id)}>
+              //       Delete
+              //     </button>
+              //   </td>
+              // </tr>
             );
           })}
         </tbody>

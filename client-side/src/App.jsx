@@ -10,11 +10,12 @@ import { useEffect, useReducer, useState } from "react";
 import addReducer from "./Reducers/addReducer";
 function App() {
   // const [create, setCreate] = useState(null);
-  const [create, dispatchCreate] = useReducer(addReducer, []);
+  const [create, dispatchCreate] = useReducer(addReducer, null);
   const [getInfo, setGetInfo] = useState([]);
   const [updateTime, setUpdateTime] = useState(Date.now());
   const [showModal, setShowModal] = useState({ id: 0 });
-  const [editItem, setEditItem] = useState(null);
+  // const [editItem, setEditItem] = useState(null);
+  const [editItem, dispatchUpdate] = useReducer(addReducer, null)
   console.log(editItem);
 
   function item(id) {
@@ -30,9 +31,10 @@ function App() {
   // }, [editItem])
 
   useEffect(() => {
-    if (create === []) {
+    if (create === null) {
       return;
     }
+    console.log(create)
     axios.post("http://localhost:5001/kolt", create).then((res) => setUpdateTime(Date.now()));
   }, [create]);
 
@@ -74,7 +76,8 @@ function App() {
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
-          setEditItem={setEditItem}
+          // setEditItem={setEditItem}
+          dispatchUpdate={dispatchUpdate}
           item={item(showModal.id)}
         ></Modal>
       </div>

@@ -1,13 +1,18 @@
-import { ADD_RECORD } from "../Constants/constants";
+import { ADD_RECORD, UPDATE_RECORD } from "../Constants/constants";
 
 function addReducer(state, action) {
+  let newState = null;
   switch (action.type) {
     case ADD_RECORD:
+      newState = action.payload;
+      break;
+    case UPDATE_RECORD:
+      newState = action.payload;
       break;
     default:
   }
 
-  return;
+  return newState;
 }
 
 export default addReducer;

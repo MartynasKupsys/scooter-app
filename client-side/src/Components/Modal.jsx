@@ -1,7 +1,8 @@
 import parseDate from "../Functions/parseDate";
 import { useState } from "react";
+import { updateRecord } from "../Actions/actions";
 
-export default function Modal({ showModal, setShowModal, setEditItem, item }) {
+export default function Modal({ showModal, setShowModal, dispatchUpdate, item }) {
   const [date, setDate] = useState(Date.now());
   const [kilometres, setKilometres] = useState(0);
   const [isBusy, setIsBusy] = useState(false);
@@ -12,14 +13,16 @@ export default function Modal({ showModal, setShowModal, setEditItem, item }) {
   const submitUpdate = () => {
     const newData = { date: date, kilometres: kilometres, isbusy: isBusy, id: showModal.id };
     // console.log(newData)
-    setEditItem((old) => newData);
+    // setEditItem((old) => newData);
+    dispatchUpdate(updateRecord(newData))
   };
 
   const cancel = () => {
     setShowModal({ id: 0 });
     setKilometres(0);
     setIsBusy(false);
-    setEditItem(null);
+    // setEditItem();
+    dispatchUpdate(updateRecord(null))
   };
 
   return (

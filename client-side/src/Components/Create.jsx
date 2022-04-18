@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { addRecord } from "../Actions/actions";
 
-export default function Create({ setCreate }) {
+export default function Create({ dispatchCreate }) {
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
 
   function submit() {
     const item = { name: name, code: code.toUpperCase() };
-    setCreate(item);
+    // setCreate(item);
+    dispatchCreate(addRecord(item))
     setName("");
     setCode("");
   }

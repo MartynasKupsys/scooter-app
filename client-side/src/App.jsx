@@ -61,7 +61,7 @@ function App() {
   return (
     <>
       <Header></Header>
-      <div className="main-container d-flex">
+      <div className="main-container d-flex mt-3">
         <div className="col-4">
           <Create setCreate={setCreate}></Create>
         </div>

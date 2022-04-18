@@ -14,7 +14,7 @@ export default function Create({ setCreate }) {
   return (
     <>
       <div className="form-group">
-        <h2>Create new Item</h2>
+        <h2>Create New Item</h2>
         <label>Scooter Name</label>
         <input
           type="text"

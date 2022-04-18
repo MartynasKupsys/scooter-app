@@ -12,7 +12,7 @@ export default function Modal({ showModal, setShowModal, setEditItem, item }) {
 
   const submitUpdate = () => {
     const newData = { date: date, kilometres: kilometres, isbusy: isBusy, id: showModal.id }
-    console.log(newData)
+    // console.log(newData)
     setEditItem(old => newData)
   }
 

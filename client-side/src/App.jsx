@@ -15,7 +15,7 @@ function App() {
   const [updateTime, setUpdateTime] = useState(Date.now());
   const [showModal, setShowModal] = useState({ id: 0 });
   // const [editItem, setEditItem] = useState(null);
-  const [editItem, dispatchUpdate] = useReducer(addReducer, null)
+  const [editItem, dispatchUpdate] = useReducer(addReducer, null);
   console.log(editItem);
 
   function item(id) {
@@ -34,13 +34,13 @@ function App() {
     if (create === null) {
       return;
     }
-    console.log(create)
-    axios.post("http://localhost:5001/kolt", create).then((res) => setUpdateTime(Date.now()));
+    console.log(create);
+    axios.post("http://192.168.88.39:8181/kolt", create).then((res) => setUpdateTime(Date.now()));
   }, [create]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5001/kolt")
+      .get("http://192.168.88.39:8181/kolt")
       .then((res) => res.data)
       .then((data) => setGetInfo(data));
   }, [updateTime]);
@@ -53,7 +53,7 @@ function App() {
   // }, [remove]);
 
   const remove = (id) => {
-    axios.delete("http://localhost:5001/kolt/" + id).then((res) => setUpdateTime(Date.now()));
+    axios.delete("http://192.168.88.39:8181/kolt/" + id).then((res) => setUpdateTime(Date.now()));
   };
 
   // useEffect(() => {

@@ -37,7 +37,6 @@
   }
 
   tbody {
-
     td,
     th {
       border-color: #22333b;
@@ -63,14 +62,14 @@
   }
 }
 
-.modalas {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  top: -300px;
-  bottom: 0px;
-  z-index: -1;
-}
+// .modalas {
+//   position: absolute;
+//   display: flex;
+//   width: 100%;
+//   top: -300px;
+//   bottom: 0px;
+//   z-index: -1;
+// }
 
 .modalas-show {
   position: absolute;
@@ -78,9 +77,11 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 100%;
-  top: 0px;
-  bottom: 0px;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
   z-index: 0;
   // opacity: 0.5;
   background-color: rgba(#eae0d5, 0.5);

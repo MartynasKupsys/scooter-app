@@ -8,7 +8,7 @@ export default function Create({ dispatchCreate }) {
   function submit() {
     const item = { name: name, code: code.toUpperCase() };
     // setCreate(item);
-    dispatchCreate(addRecord(item))
+    dispatchCreate(addRecord(item));
     setName("");
     setCode("");
   }
